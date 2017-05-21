@@ -8,16 +8,6 @@ using python to fetch data from investing.com and plotting web-based using Booke
 
 #request URL
 
-https://www.investing.com/instruments/HistoricalDataAjax
-
-data:
-
-action:historical_data
-curr_id:1
-st_date:04/21/2016
-end_date:05/21/2017
-interval_sec:Monthly
-
 ```
 $ python scrapper.py
 ```
@@ -33,6 +23,6 @@ Above command will disply plot in your browser
 conda install sqlalchemy
 conda install numpy
 conda install pandas
-conda install urllib2
+conda install requests
 conda install -c anaconda beautifulsoup4=4.6.0
 ```
