@@ -5,10 +5,6 @@ from bokeh.plotting import figure, show, output_file
 import sqlite3
 import pandas as pd
 # Create your connection.
-'/home/metal-machine/Desktop/mydb4'
-
-TOOLS = "pan,wheel_zoom,box_zoom,reset,save,hover,crosshair,zoom_out,\
-xzoom_out,yzoom_out,redo,undo,wheel_zoom,xwheel_zoom, ywheel_zoom"
 
 class CreateUI(object):
 	
@@ -51,5 +47,5 @@ out_file='hello.html'
 
 title='OHLC'
 ui=CreateUI()
-ui.connecet_db('/home/metal-machine/Desktop/mydb4')
+ui.connecet_db('mydb')
 ui.plot_data(db_query,out_file,ui_tools,title)
