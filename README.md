@@ -11,7 +11,7 @@ $ python scrapper.py
 Above command will fetch data and create DB(mydb) file in your current dictionary.  
 
 ```
-$ python scrapper.py
+$ python uiplot.py
 ```
 Above command will disply plot in your browser
 
