@@ -47,5 +47,5 @@ out_file='hello.html'
 
 title='OHLC'
 ui=CreateUI()
-ui.connecet_db('mydb')
+ui.connecet_db('mydb4')
 ui.plot_data(db_query,out_file,ui_tools,title)
