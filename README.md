@@ -16,7 +16,9 @@ $ python uiplot.py
 Above command will disply plot in your browser
 
 ## Installation(using conda)
+
 ```
+conda install sqlite
 conda install sqlalchemy
 conda install numpy
 conda install pandas

@@ -1,8 +1,7 @@
 from bs4 import BeautifulSoup
-from urllib2 import Request, urlopen
 import decimal
 import time
-from sqlalchemy.orm import relationship, sessionmaker
+from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine, exists
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.schema import Column
@@ -98,5 +97,8 @@ if __name__=="__main__":
 	
 	for date,part in zip(date_list,list_parts):
 		session.add(OhlcTable(date=date,open_price=part[1],high_price=part[2],low_price=part[3],close_price=part[4]))
-#closing DB session
+
 session.commit()
+#closing DB session
+engine.dispose()
+print 'Data Fetching Done.'

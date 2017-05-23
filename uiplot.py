@@ -1,6 +1,5 @@
 from math import pi
 import pandas as pd
-from bokeh.sampledata.stocks import MSFT
 from bokeh.plotting import figure, show, output_file
 import sqlite3
 import pandas as pd
@@ -10,11 +9,7 @@ class CreateUI(object):
 	
 	def __init__(self):
 		pass
-		#self.output_file=output_file
-		#self.chart_title=chart_title
-		#self.chart_tools=chart_tools
-		#self.plot_width=plot_width
-		#self.plot_text=plot_text
+	
 	def connecet_db(self,sql_string):
 		cnx = sqlite3.connect(sql_string)
 		self.cnx=cnx
@@ -39,13 +34,15 @@ class CreateUI(object):
 		return show(p)
 
 
-db_query="SELECT * FROM ohlc_table"
-ui_tools = "pan,wheel_zoom,box_zoom,reset,save,hover,crosshair,zoom_out,\
+if __name__=="__main__":
+	
+	db_query="SELECT * FROM ohlc_table"
+	ui_tools = "pan,wheel_zoom,box_zoom,reset,save,hover,crosshair,zoom_out,\
 xzoom_out,yzoom_out,redo,undo,wheel_zoom,xwheel_zoom, ywheel_zoom"
 
-out_file='hello.html'
+	out_file='hello.html'
 
-title='OHLC'
-ui=CreateUI()
-ui.connecet_db('mydb4')
-ui.plot_data(db_query,out_file,ui_tools,title)
+	title='OHLC'
+	ui=CreateUI()
+	ui.connecet_db('mydb4')
+	ui.plot_data(db_query,out_file,ui_tools,title)
