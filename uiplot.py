@@ -42,4 +42,4 @@ xzoom_out,yzoom_out,redo,undo,wheel_zoom,xwheel_zoom, ywheel_zoom"
 	out_file='hello.html'
 	ui=CreateUI()
 	ui.connecet_db('mydb4')
-	ui.plot_data(db_query,out_file,ui_tools,title)
+	ui.plot_data(db_query,out_file,ui_tools)
