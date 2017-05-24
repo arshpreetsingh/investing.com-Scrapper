@@ -15,7 +15,7 @@ class CreateUI(object):
 		self.cnx=cnx
 		return self.cnx
 		
-	def plot_data(self,db_query,out_file,ui_tools,title):
+	def plot_data(self,db_query,out_file,ui_tools):
 		df = pd.read_sql_query(db_query,self.cnx)
 		df["date"] = pd.to_datetime(df["date"])
 		mids = (df.open_price + df.close_price)/2
@@ -28,12 +28,11 @@ class CreateUI(object):
 		p.segment(df.date, df.high_price, df.date, df.low_price, color="black")
 		p.rect(df.date[inc], mids[inc], w, spans[inc], fill_color="#D5E1DD", line_color="black")
 		p.rect(df.date[dec], mids[dec], w, spans[dec], fill_color="#F2583E", line_color="black")
-		p.title = title
+		#p.title = title
 		p.xaxis.major_label_orientation = pi/4
 		p.grid.grid_line_alpha=0.3
 		return show(p)
-
-
+		
 if __name__=="__main__":
 	
 	db_query="SELECT * FROM ohlc_table"
@@ -41,8 +40,6 @@ if __name__=="__main__":
 xzoom_out,yzoom_out,redo,undo,wheel_zoom,xwheel_zoom, ywheel_zoom"
 
 	out_file='hello.html'
-
-	title='OHLC'
 	ui=CreateUI()
 	ui.connecet_db('mydb4')
 	ui.plot_data(db_query,out_file,ui_tools,title)
